@@ -1,0 +1,1195 @@
+
+
+* {
+
+    margin : 0 ;
+    padding : 0 ;
+    box-sizing: border-box ;   /*css3*/
+
+}
+.header{
+
+    background:rgba(0,0,0,0.4);
+    position: fixed ;
+    /*الان الفيكسيد والابسليوت يحولو العنصر من بلوك الي اين لايك بلوك*/
+    width: 100%;
+    height: 70px;
+    z-index: 10;/*اظهار الهيدر فوق الصوره الكامله الموجوده في الديف*/
+   
+}
+.container{
+    width: 80%;
+    /* height:20px; */
+    /* background: darkgreen; */
+    margin: auto;
+}
+
+.header .logo{
+
+    width:40%;
+    /* background: #ff0000; */
+    float: left ;
+    
+}
+.logo img{
+
+    width:20%;
+    margin-top: 15px;
+
+   
+}
+
+.header .nav{
+
+    width:60%;
+    /* background: #aeff00; */
+    float: left ;
+    list-style: none;
+    text-align: right;
+}
+.header .nav > li {
+
+    display: inline-block; /*علي شان أجيب الإل أي جنب بعض*/
+    /* width: 80px; */
+    text-align: center;
+
+} 
+.header .nav > li > a {
+
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    padding: 25px 15px;
+    font-size: 15px;
+   
+}
+.header .nav > li > a.active:after,.header .nav > li > a:after  { 
+        /*كود عمل خط يطهر تحت الاختيارات الموجوده في الهيدر عندالوقوف عليه بالماوس */
+
+    content: "";
+    display: block;
+    width:0;
+    height: 3px;
+    margin-top: 2px;
+    background-color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    transition: width 0.5s ; /*الزمن الذي يستغرقه الهافر في الظهور والإختفاء  */
+
+}
+.header .nav > li > a.active:after{ /*كود ثبات الهل\افر تحت زر الهوم */
+
+    width:100%;
+}
+.header .nav > li > a:hover:after{  /*كود استدعاء الهافر*/ 
+
+    width: 100%; 
+
+}
+
+/* .header-container{ */
+ /*تم الغائها بسبب وجود دروب داون والرجع الحل بواسطة الكلير*/
+    /* overflow: hidden;  */
+    /*حل مشكلة بديل الكلير float*/
+/* } */
+.clear{
+    clear: both;
+}
+
+.dropdowen{
+    position: relative;
+    
+}
+.dropdowen-manu{
+    position: absolute;
+    background-color:var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    left: -35;
+    top:70; 
+    opacity: 0;
+     /*تختفي*/
+    visibility: hidden; /*افراغ مكانه لحين الوقوف بالماوس علي الدروب داون*/
+    transition: opacity 0.5s , visibility 0.5s ;
+}
+.dropdowen-manu a {
+    color: white;
+    display: block;
+    padding:5px;
+    width: 130px;
+    text-align:center;
+    display: block;
+    
+}
+.dropdowen:hover .dropdowen-manu {
+
+    opacity: 1; 
+    /*كود الإزهار*/
+    visibility: visible ;
+}
+
+body{
+    font-family: 'Kanit', sans-serif;
+} 
+
+
+                                                /* خصائص لعناصر مشتركه */
+    h1,h2,h3,h4,h5,h6{
+
+        font-family:montserrat,sans-serif ; /*وتعني  ان كل الاتشات الموجوده في الموقع تأخذ نفس الخط ده*/
+    }
+    
+    button{
+        font-family:inherit;/*وهذا يعني ان كل الزراير الموجوده في الموقع تأخذ نفس خط البادي او الموقع */
+    }
+    a{
+        text-decoration: none;
+    }
+
+    .section-header{
+
+        text-align: center; /*أي شيئ بداخل الديف يأتي في المنتصف*/
+        margin-bottom: 20px;
+       
+
+
+
+    }
+    .section-header .section-title{
+
+        font-size: 35px;
+        text-transform: capitalize ; /*يجعل كل الكلام الموجود في داخل المحتوي يبدأ بحروف  كبيتل */
+        margin-bottom: 10px;
+
+    }
+    .section-header .line {
+
+        display: block ; /*لكي لا يملئ الشاشة ويقتصر فقط علي الظهور تحت العنصر*/
+        width: 60px;
+        height:4px;
+        margin:0 auto 70 auto;
+        background-color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+
+
+    }
+
+    /* مجموعه من الألوان يقوم استدعائها من خلال اسم الكلاس */
+    :root{
+        --maincolor :#6195ff; /* وهذا كود استدعاء اللون من الروت الموجوده في */
+        --mscolor : #7ba7ff;
+        --graycolor : #999;
+        --bg-color   : #f9f9f9;
+        --white-color: #fff;
+    }
+
+      /* معناها شيل أي بولتس جنب اي ليست موجوده في الموقع*/
+    .ul{ 
+
+        list-style: none;
+    }
+
+    .bd-y{
+
+        padding: 120px 0 ;
+
+
+    }
+    
+    .ltr-efftect ,
+    .tb-efftect
+    {
+
+        position: relative;
+    }
+
+    .ltr-efftect:after , 
+    .tb-efftect:after
+     {
+
+        position: absolute;
+        content: "";
+        /* width: 0; */
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #333;
+        z-index: -1; /*كود يخلي الهافر يظهر تحت المحتوي*/
+       
+ 
+    }
+    .ltr-efftect:after{
+        width: 0;
+        transition: width 0.5s; /*كود التحكم في سرعة الهافر */
+    }
+
+    .tb-efftect:after{
+        height: 0;
+        transition: height 0.5s; /*كود التحكم في سرعة الهافر */
+
+    }
+
+    .ltr-efftect:hover:after {
+
+        width: 100%;
+
+    }
+    
+
+    .tb-efftect:hover:after {
+
+        height: 100%;
+       
+
+    }
+    
+
+.home{
+
+    height: 100vh; /*وتعي ملئ الشاشه كله بالصوره الموجوده*/
+    background-image: url(../images/background/background1.webp);
+    background-size: cover; /*وضع الصوره كامله  */
+    position: relative;
+}
+.overlay{
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+
+}
+.hover-opacity{
+
+    transition: opscity .2s; /*ولكن من مشكلة هذة الخاصيه انه تؤثر علي كل خصائص الزر ولكي نتجنب هذة المشكله يتم كتابة كلمة أوباستي قبل العدد*/
+}
+.hover-opacity:hover{
+
+    opacity: 0.8; /*وهو التأثير الذي يظهر علي الزر عند الذهاب عليه بالماوس*/
+
+}
+
+
+.home-content{
+
+    position: absolute;
+    width: 65%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%); /*كود توسيط عنصر بداخل عنصر أخر*/
+    text-align: center; /*كود يعني توسيط العناصر التي تقع بداخل div*/
+
+
+
+}
+.title{
+    color:rgb(255, 255, 255);
+    font-size: 3.5rem;
+    text-transform: uppercase; /*تعني كل الحروف الموجوده تصبح كابيتل*/
+    /* font-family:montserrat,sans-serif ; */
+     
+    
+}
+.home-desc{
+    margin: 20px 0 ;
+    color: white;
+    letter-spacing: 2px; /*كود ابعاد الحروف عن بعض*/
+    line-height: 1.5; /*كود ابعاد السطور عن بعض*/
+
+}
+.home .btn{
+    width: 160px;
+    padding: 10px 0;
+    border-radius: 5px; /*وضع شكل للزر ملفوف من الطراف */
+    border: 0; /*من غير حواف خارجيه*/
+    cursor: pointer;/*تغير شكل الماوس عند الوقوع علي الزر من شكله العادي الي يد تشير الي وجود رابط*/
+    font-size: 18px;
+
+}
+.btn-start{
+
+    margin: 10px; /*تحرك مسافة 10بكسل من جهة اليمين*/
+    
+    background-color: white;
+}
+.btn-learn{
+
+    background-color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+}
+
+.about-content{
+
+    overflow: hidden;
+}
+
+.about-item{
+
+    width: 30%;
+    float: left;
+    text-align: center;
+    padding: 50px 20px ;
+    border: 1px solid #e8e8e8;
+}
+
+.about-item:hover .about-item-title {
+    color: white;
+
+}
+
+.about-item.margin{
+
+    margin: 0 5% ;
+
+}
+.about-item .icom{
+    color:var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    margin-bottom: 10px;
+}
+
+.about-item-title{
+
+    text-transform: capitalize ;
+    margin-bottom: 10px;
+    transition: color 0.5s;
+}
+
+.about-item-desc{
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--graycolor);
+}
+
+.about-item-link{
+
+    color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    text-transform: capitalize;
+}
+
+
+.portfolio{
+
+    background: var(--bg-color);
+
+}
+
+.portfolio-content{     
+
+    overflow: hidden; /*لكي يتم حل مشكلة الفلوت يتم وضع هذا الكود لكي يحث الاب بالابناء التي بداخله*/
+   
+
+}
+.portfolio-item{
+    position: relative;
+    width: 32%;
+    float: left;
+    margin-bottom: 20px;
+    padding: 20px;
+
+}
+
+.portfolio-item .layer-content{
+
+    position: absolute;
+    top: 0;
+    left: 0;    
+    width: 100%;
+    height: 100% ;
+    background-color:rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.5s ;
+    visibility: hidden;
+
+}
+.portfolio-item:hover .layer-content{
+
+    opacity: 1;
+    visibility: visible ;
+
+}
+.portfolio-item img {
+
+    width: 100%;
+}
+
+.portfolio-item.margin {
+
+    margin: 0  2%;
+
+}
+
+.layer-content .layer-info{
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+
+
+}
+
+.layer-content .category{
+
+    color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    text-transform: uppercase;
+    margin-top: 5px;
+    display: block; /*  لانها اسبان لابد من تحويلها الي بلوك لكي تظهر في سطر منفرده*/
+    position: relative;
+    top: 10px;
+    transition: top 0.5s , opacity 0.5s; /*سرعة الظهور*/
+    transition-delay: 0 ; /*انتظار لكي يظهرو وراء بعض*/
+    opacity: 0 ; /*التأثير   بعد الهفر عليها*/
+    /* visibility: hidden; /* عدم الظهور الي بعد الهفر عليها*/
+}  
+.layer-content-title {
+
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    top: 10px;
+    transition: top 0.5s , opacity 0.5s; /*سرعة الظهور*/
+    transition-delay:0.1s ; /*انتظار لكي يظهرو وراء بعض*/
+    opacity: 0 ; /*التأثير   بعد الهفر عليها*/
+    /* visibility: hidden; /* عدم الظهور الي بعد الهفر عليها*/
+}
+
+
+    
+
+.layer-content a i {
+
+    display: inline-block; /*لكي يظهرو جنب بعض*/
+    width:40px ;
+    height: 40px;
+    line-height:40px; /*لكي تظهر في المنتصف بالنسبه للارتفاع*/
+    background-color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    color: white;
+    position: relative;
+    top: 10px;
+    transition: top 0.5s , opacity 0.5s; /*سرعة الظهور*/
+    transition-delay: 0.2s ; /*انتظار لكي يظهرو وراء بعض*/
+    opacity: 0 ; /*التأثير  بعد الهفر عليها*/
+    /* visibility: hidden; عدم الظهور الي بعد الهفر عليها */
+}
+
+.portfolio-item:hover .layer-content-title ,
+.portfolio-item:hover .layer-content a i ,
+.portfolio-item:hover .layer-content .category { 
+    top: 0;
+    opacity: 1;
+    
+}
+
+   
+ /*offer-section*/
+
+.offer{
+
+
+}
+
+.offer-content{
+
+    overflow: hidden; /*علي شان يحل مشكلة الفلوت بديل ديف الكلير*/
+
+}
+
+.offer-item {
+    
+    width: 30%;
+    float: left; /*علي شان يجو جنب بعض */
+    border: 1px solid #e8e8e8;
+    margin-bottom: 20px; 
+    padding: 30px 15px 30px 70px  ;
+    position: relative;
+    
+    
+
+}
+
+.offer-item.margin{
+
+    margin: 0 5% ;
+}
+
+.offer-item .icom{
+
+    position: absolute;
+    left:15px;
+    top:35px;
+    color:var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+
+}
+
+.offer-item-title{
+
+    text-transform: capitalize; /*تجعل كل حرف من كل كلمة كبيتل*/
+    margin-bottom: 15px; /*مسافه عن العنصر الذي يقع اسفله بقيمة 15*/
+    transition: color 0.5s;
+}
+
+.offer-item-desc{
+
+    text-transform: capitalize; /*تجعل كل حرف من كل كلمة كبيتل*/
+    margin-bottom: 15px; /*مسافه من الإسفله بقيمة 15*/ 
+    line-height: 1.6; /*اعطاء مسافة بين السطور*/
+    color: var(--graycolor);
+       
+
+}
+
+.offer-item:hover .offer-item-title{
+
+    color: white;
+}
+
+/*service section*/
+
+.service{
+
+    background: var(--bg-color);
+}
+
+.service-item{
+
+    width: 50%;
+    float: left;
+}
+
+
+.service-item .section-header{
+
+    text-align: left; /*هات المحتوي ناحية الشمال*/
+}
+
+.service-item .section-header .line{
+
+    margin:10px 0 40px 100px;
+
+}
+
+.service-item-desc{
+
+    padding-right: 20px;
+    color:  var(--graycolor);
+    line-height: 1.5;
+    font-size:17px;
+    margin-bottom: 20px;
+    /* text-transform: capitalize; */
+}
+
+.service-list{
+
+    list-style: none; /* إزالة العلامة الموجوده بجانب الليست*/
+}
+
+.service-list li{
+
+    margin-bottom: 10px;
+    color:  var(--graycolor);
+    text-transform: capitalize;
+}
+
+.service-list li i {
+
+    border: 1px solid var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 50%; /*عمل دائره بجانب الليست*/
+    margin-right: 5px;
+    
+}
+
+.service-list-img img{
+
+    width: 100%;
+}
+
+.service-bollets{
+
+    list-style: none;
+    text-align: center;
+}
+
+.service-bollets li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 10px 5px;
+    border-radius: 50%; /*عمل دائره بجانب الليست*/
+    background-color:  var(--graycolor);
+}
+
+.service-bollets li:hover{
+
+    background-color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+}
+
+.service-bollets li.active {
+
+    background-color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+}
+
+/*number section*/
+
+.numbers{
+
+    position: relative;
+    background-image: url(../images/background/background2.webp);
+    height: 300px;
+    background-size: cover; /*  وضع الصوره كامله وتشمل الحيز الموجوده بداخلة  */
+    background-attachment: fixed; /* اعطاء ثبات للصوره عند عمل اسكرول */
+
+}
+
+.numbers-items{
+
+    overflow: hidden;
+}
+
+.number-item{
+
+    width: 25%;
+    float: left;
+    text-align: center;
+
+}
+
+.number-item .icom{
+
+    color: var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    margin-bottom: 15px ;
+
+}
+
+.number-item-title{
+
+    color:white;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+
+.number-item-text{
+
+    color:white;
+    margin-top: 10px;
+
+}
+
+/* prising section */
+
+.prising{
+
+ 
+}  
+
+.prising-plans{
+
+    overflow: hidden; /*علي شان الابناء واخده فلوت علي شان يجو جنب بعض وهي بديلة الكلير*/
+}
+
+.prising-item{
+
+    width: 30%;
+    float: left;
+    padding: 20px 15px ;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+    
+    
+}
+
+.prising-item.margin{
+
+    margin: 0 5%;
+}
+
+.prising-item-text{
+
+   text-transform: uppercase ;
+   font-size: 20px;
+   color: var(--graycolor);
+   transition: color 0.5s; /*كود التحكم في سرعة الهافر */
+
+}
+
+.prising-item-permonth{
+
+    width: 130px;
+    height: 130px;
+    padding : 20px 0 ;
+    margin: 30px auto ;
+    border: 2px solid  var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    border-radius: 50%;
+    transition: color 0.5s; /*كود التحكم في سرعة الهافر */
+
+}
+
+.prising-item-permonth .doller{
+
+    font-size: 50px;
+}
+
+.prising-item-permonth .month{
+
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+
+}
+.prising-list{
+
+    list-style: none;
+}
+
+.prising-list li {
+
+    color:  var(--graycolor);
+    line-height: 1.8;
+}
+
+.prising-item-button{
+
+    background:none; /*ازالة الخلفية الموجوده وراء البوتون*/
+    border:0;  /* اذالة الحواف الموجوده حول البوتون*/
+    width: 140px;
+    display:block ;
+    margin: 15px  auto 0 auto  ;
+    border: 2px solid var(--mscolor) ;
+    color:var(--mscolor) ;
+    padding:8px;
+    text-transform:capitalize;
+    cursor: pointer; /*كود يظهر شكل اليد عند الوقوف علي العنصر ليدل انه لينك*/ 
+    transition:  color 0.5s; /*كود التحكم في سرعة الهافر */
+
+}
+
+.prising-item:hover .prising-item-text{
+
+        color:var(--mscolor) ;
+
+    }
+
+.prising-item:hover .prising-item-permonth {
+    color:var(--white-color);
+
+}    
+
+.prising-item:hover .prising-item-button {
+   color:white;
+
+}    
+
+/*testimonail section*/
+
+.testimonail{
+
+    position: relative; /*علي شان يتحرك بالنسبه للتيست مونيل وهي الديف الاب*/
+    background-image: url(../images/background/background3.webp);
+    background-attachment: fixed; /*علي شان الصوه تفضل ثابته عند عمل اسكرول*/
+    height: 400px;
+
+}
+
+.testimonail-item{
+    overflow: hidden;
+    color:white;
+    padding: 130px 10px 20px 80px;
+    width: 50%;
+    float: left;
+}
+
+.testimonail-item .testimonail-toplayer {
+
+    position: relative;
+    padding: 10px 2px 40px 90px;
+}
+
+.testimonail-toplayer img{
+
+    position: absolute ;
+    top:10px;
+    left: 2px;
+    width: 15%;
+    border-radius: 50%;
+    
+}
+
+.testimonail-toplayer h3{
+
+    margin: 10px 0 0 0;
+    text-transform: capitalize;
+}
+
+.testimonail-toplayer span{
+
+    color: var(--mscolor) ;
+    text-transform: capitalize;
+
+}
+.testimonail-toplaye-pr{
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+
+/* team section */
+
+
+
+.team-content {
+   
+    overflow: hidden;
+}
+
+.team-item{
+
+    float: left;
+    width: 30%;
+    background-color: #e8e8e8;
+    padding: 40px 10px;
+    text-align: center;
+
+
+}
+.team-item .team-img{
+
+    width: 90%;
+    margin: auto;
+    position: relative;
+    text-align: center  ;
+    position: relative;
+}
+.team-overlay {
+    position: absolute ;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0,0,0,0.5);
+      
+}
+
+.team-item .team-img img {
+
+    width: 100%;
+}
+.team-item .team-info-title{
+    color:#222 ;
+    margin: 10px 0;
+    transition: color 0.5s;
+
+}
+
+.team-item .team-info-text{
+
+    color:  var(--graycolor);
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color 0.5s;
+}
+
+
+.team-item.margin{
+
+    margin: 0 5%;
+}
+
+
+
+.team-overlay a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background:var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    color: var(--white-color);
+    margin-left: auto ; /*علي شان الجيب كل اللينكات ناحيت اليمين*/
+
+
+}
+.team-overlay a i {
+
+    line-height: 40px; /*علي شان كل اللينكات تبقي علي قد المحتوي اللي وخداه*/
+}
+
+
+
+
+
+
+.team-item:hover .team-overlay{
+    visibility: visible;
+    opacity: 1;
+}
+.team-item.tb-efftect{
+    z-index: 1;;
+}
+
+.team-item:hover .team-info-title  {
+    color: var(--white-color);
+}
+.team-item:hover .team-info-text  {
+    color: var(--mscolor) ;
+}
+
+/*Blog-section*/
+
+.blog{
+    background-color: var(--bg-color);
+}
+
+.blog-content{
+    overflow: hidden;
+}
+
+.blog-item{
+
+    float: left;
+    width: 30%;
+    background-color: white;
+}
+.blog-item.margin {
+
+    margin: 0 5% ;
+}
+
+/* .blog-item-img{
+
+    margin: 20px;
+} */
+.blog-item-img img {
+
+    width: 100%;
+
+}
+
+.blog-list{
+
+    list-style: none;
+}
+
+.blog-item-info{
+
+    padding-bottom: 25px;
+}
+
+.blog-list li  {
+    margin: 20px 0 0 20px;
+   
+    display: inline-block;
+
+}
+.blog-list li i {
+
+    color: var(--mscolor) ;
+}
+.blog-title{
+
+    margin: 20px 0 20px 20px ;
+    text-transform: capitalize ; /*اول حرف كبيتل*/
+    font-size: 20px;
+}
+
+.blog-desc{
+
+    color: var(--graycolor);
+    text-transform: capitalize ; /*اول حرف كبيتل*/
+    font-size: 16px;
+    margin: 20px 0 10px 20px ;
+    line-height: 1.5;
+
+}
+
+.blog-link{
+    text-transform: capitalize ; /*اول حرف كبيتل*/
+    color:var(--mscolor) ;
+    font-size: 17px;
+    margin: 20px 10px 20px 20px ;
+
+}
+
+/*from section*/
+.form{
+
+
+} 
+
+.form-content{
+    overflow: hidden;
+    list-style: s;
+    
+}
+
+
+.form-item{
+    float: left;
+    width: 30%;
+    display: block;
+    line-height:40px;
+    text-align: center;
+    
+
+
+}
+
+.form-item i {
+
+    color: var(--mscolor) ;
+}
+.form-item-text{
+
+    display: block;
+    text-align: center;
+}
+.form-item.margin{
+
+    margin: 0 5%;
+}
+.form-item-title{
+    color: var(--graycolor);
+    font-size: 15px;
+    
+}
+.form-item-text{
+    
+    font-size: 25px ;
+    margin-top: 5px;
+    text-transform: capitalize;
+    
+}
+
+.form-item-input{
+
+
+  margin:auto;
+  width: 65%;
+  margin-top: 50px;
+  
+}
+.name{
+
+    width: 48%;
+    height: 40px;
+    margin-right: 25px;
+    background-color: #e8e8e8;
+    border: 0;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    padding-left: 5px;
+    font-size: 17px;
+
+}
+
+.email{
+
+    width: 48%;
+    height: 40px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+     border: 0;
+     padding-left: 5px;
+     font-size: 17px;
+}
+
+.subject{
+
+    width: 100%;
+    height: 40px;
+    margin: 20px 0 20px 0;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+     border: 0;
+     padding-left: 5px;
+     font-size: 17px;
+
+}
+
+.message{
+
+    width: 100%;
+    height: 80px;
+    padding-top: 10px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    border: 0;
+    font-size: 17px;
+}
+
+.from-button{
+
+    width: 160px;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--mscolor) ;
+    color: var(--white-color);
+    margin:50px 0 0 500px ;
+    font-size: 16px;
+    text-transform: capitalize;
+
+}
+
+/*footer section*/
+
+.footer{
+
+  
+    background-color:rgba(0,0,0,0.5);
+    text-align: center;
+    padding: 60px 0 ;
+}
+
+
+.footer-list  {
+
+
+   list-style: none; /*علي شان نشيل النقط السوده الموجوده بجانب الليست*/
+   margin-top: 40px;
+   
+} 
+
+.footer-list li{
+    
+    display: inline-block;
+    
+}
+
+.footer-list li a {
+    
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--mscolor) ;
+    color:var(--white-color);
+    margin: 0 5px;
+    border-radius: 5px; /*وضع شكل للزر ملفوف من الطراف */
+}
+
+.footer-list li a i {
+
+    line-height: 50px; /*في منتصف الاب*/
+
+
+
+}
+
+.footer-title{
+
+    color: rgba(0,0,0,0.7);
+    margin-top: 25px;
+    text-transform: uppercase ; /*جعل كل الحروف كبيتل*/
+    font-size: 15px;
+    
+} 
+
+.footer-title-color{
+
+    color:var(--maincolor); /* وهذا كود استدعاء اللون من الروت الموجوده في */
+    
+}
